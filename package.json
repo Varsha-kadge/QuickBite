@@ -1,0 +1,30 @@
+{
+  "name": "react_project2",
+  "version": "1.0.0",
+  "description": "This is react project",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varsha-kadge/React_Project2.git"
+  },
+  "keywords": [],
+  "author": "varsha kadge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Varsha-kadge/React_Project2/issues"
+  },
+  "homepage": "https://github.com/Varsha-kadge/React_Project2#readme",
+  "dependencies": {
+    "parcel": "^2.13.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
