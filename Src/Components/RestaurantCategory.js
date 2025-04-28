@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
+const RestaurantCategory = ({ data, showItems, setshowIndex }) => {
+  console.log(showItems, 'ShowItems');
   const handleClick = () => {
-    setShowItems(!showItems);
+    setshowIndex();
   };
   if (data.title && data.itemCards?.length > 0)
     return (
@@ -13,7 +13,7 @@ const RestaurantCategory = ({ data }) => {
             className='flex justify-between cursor-pointer'
             onClick={handleClick}>
             <span className='font-bold text-xl'>
-              {data.title} ({data?.itemCards?.length})
+              {data?.title} ({data?.itemCards?.length}) {showItems}
             </span>
             <span>⬇️</span>
           </div>
@@ -32,7 +32,7 @@ const RestaurantCategory = ({ data }) => {
                 className='flex justify-between mt-4 cursor-pointer'
                 onClick={handleClick}>
                 <span className='font-bold text-lg'>
-                  {category?.title} ({category?.itemCards?.length})
+                  {category?.title} ({category?.itemCards?.length}){showItems}
                 </span>
                 <span>⬇️</span>
               </div>

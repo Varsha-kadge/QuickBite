@@ -1,6 +1,5 @@
 import { IMG_URL } from './Utils/Constants';
 const ItemList = ({ data }) => {
-  console.log(data);
   return (
     <div>
       {data?.map((item, index) => (

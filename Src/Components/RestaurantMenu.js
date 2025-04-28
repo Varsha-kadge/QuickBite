@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Shimmer from './Shimmer';
+import { useEffect, useState } from 'react';
 import useRestuarantMenu from './Utils/useRestaurantMenu';
 import useOnlineStatus from './Utils/useOnlineStatus';
 import RestaurantCategory from './RestaurantCategory';
@@ -7,6 +8,7 @@ import RestaurantCategory from './RestaurantCategory';
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestuarantMenu(resId);
+  const [showIndex, setshowIndex] = useState(2);
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (
@@ -29,8 +31,13 @@ const RestaurantMenu = () => {
         {costForTwoMessage}
       </p>
       {/* categories accordios */}
-      {itemCards.map((category) => (
-        <RestaurantCategory data={category?.card?.card} />
+      {itemCards.map((category, index) => (
+        <RestaurantCategory
+          data={category?.card?.card}
+          key={index}
+          showItems={index == showIndex ? true : false}
+          setshowIndex={() => setshowIndex(index)}
+        />
       ))}
     </div>
   );

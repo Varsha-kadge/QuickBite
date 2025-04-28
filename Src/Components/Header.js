@@ -1,14 +1,17 @@
 import { CDN_URL } from './Utils/Constants';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import userContext from './Utils/UserContext';
+import userContext from './Utils/UserContext';
 const Header = () => {
   const [btnName, setbtnName] = useState('Login');
+  const { loggedInUser } = useContext(userContext);
+
   // if no dependency array it is called every render
   // if empty dependency array it is called only at initial rendering
   //if dependency array is [btnName] everyTime btnName is updated useEfect is called
-  useEffect(() => {
-    console.log('useEffect Called');
-  }, [btnName]);
+  useEffect(() => {}, [btnName]);
   return (
     <div className='flex justify-between bg-blue-50 shadow-lg my-2 sm:bg-yellow-50 lg:bg-blue-50'>
       <div className='logo-container'>
@@ -36,6 +39,7 @@ const Header = () => {
             }>
             {btnName}
           </button>
+          <li className='p-2 font-bold'>{loggedInUser}</li>
         </ul>
       </div>
     </div>
