@@ -8,7 +8,7 @@ import RestaurantCategory from './RestaurantCategory';
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestuarantMenu(resId);
-  const [showIndex, setshowIndex] = useState(2);
+  const [showIndex, setshowIndex] = useState(1);
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (

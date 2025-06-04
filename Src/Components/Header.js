@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import userContext from './Utils/UserContext';
 import userContext from './Utils/UserContext';
+import { useSelector } from 'react-redux';
 const Header = () => {
   const [btnName, setbtnName] = useState('Login');
   const { loggedInUser } = useContext(userContext);
+
+  // subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   // if no dependency array it is called every render
   // if empty dependency array it is called only at initial rendering
@@ -31,7 +35,10 @@ const Header = () => {
           <li className='px-4'>
             <Link to={'/grocery'}>Grocery</Link>
           </li>
-          <li className='px-4'>Cart</li>
+          <Link to={'/cart'}>
+            <li className='px-4'>Cart🛒-({cartItems.length} Items)</li>
+          </Link>
+          <li className='px-4 font-bold'>{loggedInUser}</li>
           <button
             className='bg-blue-700 px-4 py-1 mb-1 text-white rounded-md'
             onClick={() =>
@@ -39,7 +46,6 @@ const Header = () => {
             }>
             {btnName}
           </button>
-          <li className='p-2 font-bold'>{loggedInUser}</li>
         </ul>
       </div>
     </div>

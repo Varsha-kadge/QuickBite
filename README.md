@@ -37,3 +37,11 @@
 // const memo = memoization(calc);
 // console.log(memo(6));
 // console.log(memo(5));
+
+//Redux Toolkit
+// build store
+// connect store with app
+// create a cart slice
+// dispatch action
+// read data using selector
+// @reduxjs/toolkit and resct-redux

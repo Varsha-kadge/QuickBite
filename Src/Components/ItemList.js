@@ -1,5 +1,11 @@
+import { useDispatch } from 'react-redux';
 import { IMG_URL } from './Utils/Constants';
+import { addItem } from './Utils/cartSlice'; // adjust the path
 const ItemList = ({ data }) => {
+  const dispatch = useDispatch();
+  const handleonAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {data?.map((item, index) => (
@@ -36,7 +42,9 @@ const ItemList = ({ data }) => {
               alt=''
             />
             <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2'>
-              <button className='text-green-600 rounded-xl bg-white font-bold border-2 shadow-lg border-gray-300 p-2 w-30'>
+              <button
+                onClick={() => handleonAddItem(item)}
+                className='text-green-600 cursor-pointer rounded-xl bg-white font-bold border-2 shadow-lg border-gray-300 p-2 w-30'>
                 ADD
               </button>
             </div>
