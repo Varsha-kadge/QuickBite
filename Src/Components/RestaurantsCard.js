@@ -6,7 +6,9 @@ const RestaurantCard = (props) => {
   const { resData } = props;
   const { loggedInUser } = useContext(userContext);
   return (
-    <div className='m-2 p-2 w-[250px] bg-gray-200 rounded-lg'>
+    <div
+      data-testid='resCard'
+      className='m-2 p-2 w-[250px] bg-gray-200 rounded-lg'>
       <img
         className='rounded-lg'
         src={LOGo_URL + resData.info.cloudinaryImageId}></img>

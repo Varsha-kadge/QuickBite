@@ -13,7 +13,7 @@ const Body = () => {
     fetchData();
   }, []);
   fetchData = async () => {
-    data = await fetch(
+    const data = await fetch(
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4517127&lng=77.0516491&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
     );
     const json = await data.json();
@@ -35,6 +35,7 @@ const Body = () => {
           <input
             className='border border-solid m-4 p-2 rounded-lg'
             value={searchText}
+            data-testid='searchInput'
             onChange={(e) => setsearchText(e.target.value)}></input>
           <button
             className='px-4 py-1 bg-green-100 m-4 rounded-md'

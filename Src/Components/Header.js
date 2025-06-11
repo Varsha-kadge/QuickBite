@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import userContext from './Utils/UserContext';
-import userContext from './Utils/UserContext';
 import { useSelector } from 'react-redux';
 const Header = () => {
   const [btnName, setbtnName] = useState('Login');
