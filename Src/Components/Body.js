@@ -30,15 +30,19 @@ const Body = () => {
   }
   return (
     <div className='body'>
-      <div className='search flex'>
-        <div className='mx-4 p-4 flex items-center'>
+      <div className='search flex flex-wrap gap-4 p-4 bg-white shadow-md rounded-xl items-center justify-between'>
+        {/* Search Input + Button */}
+        <div className='flex items-center gap-2'>
           <input
-            className='border border-solid m-4 p-2 rounded-lg'
+            className='border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400'
+            type='text'
             value={searchText}
             data-testid='searchInput'
-            onChange={(e) => setsearchText(e.target.value)}></input>
+            placeholder='Search restaurants...'
+            onChange={(e) => setsearchText(e.target.value)}
+          />
           <button
-            className='px-4 py-1 bg-green-100 m-4 rounded-md'
+            className='bg-green-500 cursor-pointer text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-200'
             onClick={() => {
               const newList = listOfRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText)
@@ -48,22 +52,26 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className='mx-4 p-4 flex items-center'>
+
+        {/* Top Restaurants Button */}
+        <div className='flex items-center'>
           <button
-            className='px-4 py-1 bg-gray-200 rounded-md'
+            className='bg-gray-800 cursor-pointer text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-all duration-200'
             onClick={() => {
               const filterLogic = listOfRestaurant.filter(
-                (res) => res.info.avgRating > 4.5
+                (res) => Number(res.info.avgRating) >= 4.5
               );
-              setListOfRestaurant(filterLogic);
+              setfilterdResturant(filterLogic);
             }}>
             Top Restaurants
           </button>
         </div>
-        <div className='mx-4 p-4 flex items-center'>
-          <label>User Name: </label>
+
+        {/* User Input */}
+        <div className='flex items-center gap-2'>
+          <label className='font-medium text-gray-700'>User Name:</label>
           <input
-            className='border border-black p-2 rounded-lg m-1'
+            className='border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400'
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
           />

@@ -7,7 +7,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.js",
     "test": "jest",
-    "watch-test":"jest --watch"
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "@babel/preset-react": "^7.27.1",
     "@reduxjs/toolkit": "^2.8.1",
     "@tailwindcss/postcss": "^4.0.2",
+    "firebase": "^11.9.1",
     "parcel": "^2.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
