@@ -21,7 +21,7 @@ const about = () => {
         </p>
         <div className='mt-6 text-center'>
           <p className='text-sm text-gray-400'>
-            Made with ❤️ using React & Tailwind CSS by Varsha Kadge
+            Made with ❤️ using React & Tailwind CSS by VARSHA
           </p>
           <p className='text-sm text-gray-400'>
             © 2025 QuickBite. All rights reserved.
